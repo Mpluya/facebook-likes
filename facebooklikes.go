@@ -52,7 +52,6 @@ func get(accessTokenIn string) []byte {
 		log.Fatal(error)
 	}
 
-	//TODO: parse json using "encoding/json"
 	return body
 }
 
@@ -60,7 +59,7 @@ func parseLikes(body []byte) *LikesResponse {
 	var s = new(LikesResponse)
 	err := json.Unmarshal(body, &s)
 	if err != nil {
-		fmt.Println("err:", err)
+		log.Fatal(err)
 	}
 	return s
 }
